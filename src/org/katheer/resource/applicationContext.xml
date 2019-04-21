@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="savings" class="org.katheer.bean.SavingsAccount"/>
+    <bean id="current" class="org.katheer.bean.CurrentAccount"/>
+
+    <bean id="savingsAccountFactory" class="org.katheer.factory.AccountFactory">
+        <lookup-method name="getAccount" bean="savings"/>
+    </bean>
+
+    <bean id="currentAccountFactory"
+          class="org.katheer.factory.AccountFactory">
+        <lookup-method name="getAccount" bean="current"/>
+    </bean>
+</beans>
